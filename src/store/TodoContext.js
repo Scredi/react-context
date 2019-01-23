@@ -3,7 +3,7 @@ import React, { Component, createContext } from 'react'
 const TodoContext = createContext()
 
 class TodoProvider extends Component {
-    
+
     constructor() {
         super()
 
@@ -31,7 +31,7 @@ class TodoProvider extends Component {
         })
     }
 
-    validateTodo = indexToComplete => {
+    completeTodo = indexToComplete => {
         let todos = this.state.todos
         todos[indexToComplete].complete = !todos[indexToComplete].complete
         this.setState({
