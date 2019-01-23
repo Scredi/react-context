@@ -4,8 +4,8 @@ const TodoContext = createContext()
 
 class TodoProvider extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             todos: [
