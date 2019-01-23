@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">        
         <TodoConsumer>          
           {({ todos, deleteTodo, createTodo, todo, handleInput, completeTodo, handleKeyPress }) => (
-            <div>
+            <React.Fragment>
               <input
                 onKeyPress={handleKeyPress}
                 type='text'
@@ -33,7 +33,7 @@ class App extends Component {
                 :
                 <p>Liste vide</p>
               }
-            </div>
+            </React.Fragment>
           )}
         </TodoConsumer>
       </div>
