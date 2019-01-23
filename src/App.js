@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">        
         <TodoConsumer>          
-          {({ todos, deleteTodo, createTodo, todo, handleInput, validateTodo, handleKeyPress }) => (
+          {({ todos, deleteTodo, createTodo, todo, handleInput, completeTodo, handleKeyPress }) => (
             <div>
               <input onKeyPress={handleKeyPress} type='text' value={todo} onChange={handleInput}/>
               <button onClick={createTodo}>Ajouter</button>
@@ -19,7 +19,7 @@ class App extends Component {
                     <div key={index}>
                       <p style={{textDecoration: isComplete}}>{item.todo}</p>
                       <button onClick={deleteTodo.bind(this, index)}>Supprimer</button>
-                      <button onClick={validateTodo.bind(this, index)}>Valider</button>
+                      <button onClick={completeTodo.bind(this, index)}>Valider</button>
                     </div>
                   )
                 })

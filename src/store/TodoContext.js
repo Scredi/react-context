@@ -64,7 +64,7 @@ class TodoProvider extends Component {
                     createTodo: this.createTodo,
                     handleInput: this.handleInput,
                     todo: this.state.todo,
-                    validateTodo: this.validateTodo,
+                    completeTodo: this.completeTodo,
                     handleKeyPress: this.handleKeyPress
                 }}
             >
