@@ -22,7 +22,8 @@ class TodoProvider extends Component {
         }
     }
 
-    createTodo = () => {        
+    createTodo = () => {
+        if(this.state.todo === '') return        
         let currentTodo = { todo: this.state.todo, complete: false }
         let todos = [...this.state.todos, currentTodo]        
         this.setState({

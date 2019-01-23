@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import { TodoConsumer } from './store/TodoContext'
+import TodoItem from './components/TodoItem'
 
 class App extends Component {
   render() {
@@ -10,18 +10,24 @@ class App extends Component {
         <TodoConsumer>          
           {({ todos, deleteTodo, createTodo, todo, handleInput, completeTodo, handleKeyPress }) => (
             <div>
-              <input onKeyPress={handleKeyPress} type='text' value={todo} onChange={handleInput}/>
+              <input
+                onKeyPress={handleKeyPress}
+                type='text'
+                value={todo}
+                onChange={handleInput} 
+              />
               <button onClick={createTodo}>Ajouter</button>
               {
                 todos.length > 0 ? 
-                todos.map((item, index) => {
-                  let isComplete = item.complete ? 'line-through' : 'none'
+                todos.map((item, index) => {                  
                   return (
-                    <div key={index}>
-                      <p style={{textDecoration: isComplete}}>{item.todo}</p>
-                      <button onClick={deleteTodo.bind(this, index)}>Supprimer</button>
-                      <button onClick={completeTodo.bind(this, index)}>Valider</button>
-                    </div>
+                    <TodoItem key={index}
+                      index={index}
+                      isComplete={item.complete}
+                      completeTodo={completeTodo}
+                      todo={item.todo}
+                      deleteTodo={deleteTodo}
+                    />
                   )
                 })
                 :
