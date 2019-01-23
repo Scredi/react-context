@@ -13,6 +13,7 @@ class App extends Component {
               <input onKeyPress={handleKeyPress} type='text' value={todo} onChange={handleInput}/>
               <button onClick={createTodo}>Ajouter</button>
               {
+                todos.length > 0 ? 
                 todos.map((item, index) => {
                   let isComplete = item.complete ? 'line-through' : 'none'
                   return (
@@ -23,6 +24,8 @@ class App extends Component {
                     </div>
                   )
                 })
+                :
+                <p>Liste vide</p>
               }
             </div>
           )}
